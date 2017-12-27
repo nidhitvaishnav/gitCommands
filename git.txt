@@ -1,0 +1,63 @@
+https://www.atlassian.com/git/tutorials is good
+
+TO upload project first time in a new repository:
+(Follow guideline)
+>>git init
+>>git remote add origin <repository URL>
+To add all files
+>>git add .
+or
+>>git add <file names>
+>>git commit -m <"Initial commit message">
+>>git push -u origin master
+
+
+
+To clone the project from repository to local:
+>>git clone <projectURL>
+
+
+To create .gitignore
+>>touch .gitignore
+
+To add file in .gitignore
+>>echo '<fileName>'>>.gitignore
+
+
+To commit files
+>>git status
+>>git add <cp all the required modified files>
+>>git commit -m "<message>"
+
+to check if someone has added/pushed new branch to repo and are not listed in our local git:
+>>git fetch <remote>
+To check the last commit comment:
+>>git log --oneline master..origin/master
+
+To pull changes from git server: 
+>>git pull
+
+If merge is required,
+>>git checkout master
+>>git log origin/master
+>>git merge origin/master
+
+If conflicts occurs:
+To keep remote file
+>>git checkout --theirs <filePath>
+To keep local file
+>>git checkout --ours <filePath>
+
+IN both cases,
+>>git add <changedFiles>
+>>git commit -m "<message>"
+
+To push file to remote:
+>>git push origin master
+
+To clean tree
+>>git status
+To show what will be deleted
+>>git clean -n
+To delete
+>>git clean -f
