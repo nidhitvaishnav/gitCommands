@@ -61,3 +61,27 @@ To show what will be deleted
 >>git clean -n
 To delete
 >>git clean -f
+
+
+
+To remove a file permenently from the version control (which is previously insterted)
+Link: https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+
+add the repository in your pc
+>>git clone https://github.com/YOUR-USERNAME/YOUR-REPOSITORY
+>>cd YOUR-REPOSITORY
+
+remove from all version
+>>git filter-branch --force --index-filter \
+'git rm --cached --ignore-unmatch PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA' \
+--prune-empty --tag-name-filter cat -- --all
+
+add file to .gitignore so by mistake it won't get commited again 
+>>echo "YOUR-FILE-WITH-SENSITIVE-DATA" >> .gitignore
+>>git add .gitignore
+>>git commit -m "Add YOUR-FILE-WITH-SENSITIVE-DATA to .gitignore"
+
+#do this for all the files you want to remove, and commit file by file
+#once all changes are done,
+>>git push origin --force --all
+>>git push origin --force --tags
